@@ -1,4 +1,4 @@
-# HTML Basics Guide
+# HTML / CSS Basics Guide
 
 ## Table of Contents
 
@@ -392,6 +392,20 @@ HTML provides two main types of lists: ordered (numbered) and unordered (bullete
 - **Unordered List (`<ul>`)**: Bulleted list (•, •, •...)
 - **List Items (`<li>`)**: Individual items in both list types
 - **Navigation (`<nav>`)**: Semantic element often used with lists for navigation
+
+### Attributes of List Types:
+
+```html
+<ul type="square"></ul>
+<ul type="disc"></ul>
+<ul type="circle"></ul>
+
+<ol type="1"></ol>
+<ol type="I"></ol>
+<ol type="i"></ol>
+<ol type="A"></ol>
+<ol type="a"></ol>
+```
 
 ## Input Types
 
