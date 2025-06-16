@@ -611,7 +611,7 @@ HTML tables organize data in rows and columns.
   src="https://www.youtube.com/embed/VIDEO_ID"
   title="YouTube video player"
   frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allow="picture-in-picture"
   allowfullscreen
 >
 </iframe>
@@ -622,6 +622,15 @@ HTML tables organize data in rows and columns.
 - Use HTML5 `<video>` for self-hosted videos
 - Use `<iframe>` for embedded videos from platforms like YouTube
 - Always provide fallback text for unsupported browsers
+- src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&controls=0&start=6&loop=1"
+
+**Quick Method:**
+
+- Go to the YouTube video
+- Click the "Share" button below the video
+- Click "Embed"
+- Copy the provided iframe code
+- Paste it into your HTML
 
 ## Tooltips
 
