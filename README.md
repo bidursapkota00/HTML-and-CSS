@@ -1449,7 +1449,7 @@ REM (Root EM) units are relative to the root element's font size, making them id
     <title>Font-Properties</title>
     <style>
       html {
-        font-size: 12pt;
+        font-size: 62.5%;
       }
       h1 {
         font-size: 3rem; /* 3 * 12pt = 36pt */
@@ -1711,6 +1711,7 @@ CSS gradients create smooth transitions between colors. There are two main types
 
 - **Linear**: Colors transition in a straight line
 - **Radial**: Colors transition from center outward
+- The values to top, to bottom, to left, and to right are equivalent to the angles 0deg, 180deg, 270deg, and 90deg, respectively. o deg = bottom to top [ to top ]
 
 ### Example Code:
 
@@ -1997,6 +1998,7 @@ Pseudo-classes target elements in specific states or positions, adding interacti
 - `:first-child`, `:last-child`: Position-based
 - `:nth-child()`: Nth position
 - `:valid`, `:invalid`: Form validation states
+- `input:focus:invalid`: Combine
 
 ### Example Code:
 
@@ -2067,7 +2069,7 @@ Pseudo-classes target elements in specific states or positions, adding interacti
   </head>
   <body>
     <a href="#">This is a link</a>
-    <input type="text" />
+    <input type="email" />
     <input type="checkbox" />
     <span>Todo-Element</span>
     <ol>
