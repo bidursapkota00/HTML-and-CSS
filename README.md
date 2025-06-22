@@ -43,6 +43,7 @@
 - [Popup/Modal Design](#popupmodal-design)
 - [Flexbox Layout](#flexbox-layout)
 - [Grid Layout](#grid-layout)
+- [Media Query Example Guide](#media-query-example-guide)
 - [Multi Page Website Build Guide](#multi-page-website-build-guide)
 
 ## What is HTML?
@@ -2515,6 +2516,230 @@ body {
 ```
 
 This creates a grid that automatically adjusts the number of columns based on available space, with each column being at least 300px wide.
+
+---
+
+# Media Query Example Guide
+
+This guide demonstrates how to use CSS media queries to create responsive designs that adapt to different screen sizes.
+
+## HTML Structure
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Query Example</title>
+    <style>
+      /* CSS goes here */
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <p>Resize your browser window to see the box change:</p>
+    <ul>
+      <li>Desktop (769px+): Blue, 200x200px</li>
+      <li>Tablet (768px and below): Green, 150x150px</li>
+      <li>Mobile (600px and below): Red, 100x100px</li>
+    </ul>
+  </body>
+</html>
+```
+
+## CSS with Media Queries
+
+### Base Styles (Desktop)
+
+```css
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+  margin: 20px;
+}
+```
+
+### Tablet Styles (768px and below)
+
+```css
+@media screen and (max-width: 768px) {
+  .box {
+    background-color: green;
+    width: 150px;
+    height: 150px;
+  }
+}
+```
+
+### Mobile Styles (600px and below)
+
+```css
+@media screen and (max-width: 600px) {
+  .box {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+  }
+}
+```
+
+### Print
+
+```css
+@media print {
+  .box {
+    background-color: black !important;
+    color: white;
+  }
+  /* Hide navigation, ads, etc. */
+  .no-print {
+    display: none;
+  }
+}
+```
+
+## Breakpoints Explained
+
+| Device Type | Screen Width | Box Color | Box Size  |
+| ----------- | ------------ | --------- | --------- |
+| Desktop     | 769px+       | Blue      | 200x200px |
+| Tablet      | ≤768px       | Green     | 150x150px |
+| Mobile      | ≤600px       | Red       | 100x100px |
+
+## Key Points
+
+1. **Media Query Syntax**: `@media screen and (max-width: XXXpx)`
+2. **Cascading**: Smaller screens inherit styles from larger breakpoints, then override specific properties
+3. **Mobile-First vs Desktop-First**: This example uses desktop-first approach (starts with desktop styles, then overrides for smaller screens)
+4. **Viewport Meta Tag**: Essential for responsive design - `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+
+---
+
+# CSS Variables and Theming Guide
+
+## What are CSS Variables?
+
+CSS Variables (also called CSS Custom Properties) are a powerful feature that allows you to store values in reusable variables. They're perfect for creating dynamic themes because you can change multiple properties at once by updating just the variable values.
+
+## Basic Syntax
+
+```css
+/* Define variables */
+:root {
+  --variable-name: value;
+}
+
+/* Use variables */
+.element {
+  property: var(--variable-name);
+}
+```
+
+## How Theming Works
+
+### 1. Define Theme Variables
+
+Variables are typically defined in the `:root` pseudo-class, making them globally available:
+
+```css
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #212529;
+  --accent-color: #007bff;
+}
+```
+
+### 2. Create Theme Variants
+
+Use attribute selectors to override variables for different themes:
+
+```css
+[data-theme="dark"] {
+  --bg-primary: #212529;
+  --text-primary: #f8f9fa;
+  --accent-color: #0d6efd;
+}
+```
+
+### 3. Apply Variables to Elements
+
+Use `var()` function to apply variables to CSS properties:
+
+```css
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+```
+
+## Theme Switching
+
+Themes are typically switched by changing the `data-theme` attribute on the body or html element:
+
+```javascript
+// Switch to dark theme
+document.body.setAttribute("data-theme", "dark");
+
+// Switch to light theme
+document.body.setAttribute("data-theme", "light");
+```
+
+## Complete Example
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Variables Theming Demo</title>
+    <style>
+      /* Theme Variables */
+      :root {
+        --bg-primary: #ffffff;
+        --text-primary: #0000;
+      }
+
+      /* Dark theme */
+      [data-theme="dark"] {
+        --bg-primary: #000000;
+        --text-primary: #ffffff;
+      }
+
+      /* Styles */
+      body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+      }
+
+      .theme-toggle {
+        background: blue;
+        color: var(--bg-primary);
+        border: none;
+      }
+    </style>
+  </head>
+  <body data-theme="light">
+    <h1>Hello</h1>
+    <button class="theme-toggle" onclick="toggleTheme()">Switch Theme</button>
+
+    <script>
+      function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute("data-theme");
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        const toggleBtn = document.querySelector(".theme-toggle");
+
+        body.setAttribute("data-theme", newTheme);
+        toggleBtn.textContent =
+          newTheme === "light" ? "🌙 Switch Theme" : "☀️ Switch Theme";
+      }
+    </script>
+  </body>
+</html>
+```
 
 ---
 
