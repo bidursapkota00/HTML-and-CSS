@@ -2,49 +2,52 @@
 
 ## Table of Contents
 
-- [What is HTML?](#what-is-html)
-- [HTML Tags & Attributes](#html-tags-and-attributes)
-- [HTML Document Structure](#links)
-- [Adding Images](#adding-images)
-- [Text Formatting Tags](#text-formatting-tags)
-- [Links](#links)
-- [Bookmark Links](#bookmark-links)
-- [Comments](#comments)
-- [Lists](#lists)
-- [Input Types](#input-types)
-- [Tables](#tables)
-- [Table Layouts](#table-layouts)
-- [Videos](#videos)
-- [Tooltips](#tooltips)
-- [Adding CSS - Three Methods](#adding-css---three-methods)
-- [Classes and IDs](#classes-and-ids)
-- [Colors](#colors)
-- [Height and Width](#height-and-width)
-- [Borders](#borders)
-- [Margin](#margin)
-- [Padding](#padding)
-- [Box Sizing](#box-sizing)
-- [Universal Selector](#universal-selector)
-- [Block vs Inline Elements](#block-vs-inline-elements)
-- [Display Property](#display-property)
-- [Border Radius](#border-radius)
-- [Text Properties](#text-properties)
-- [Font Properties](#font-properties)
-- [Centering Elements](#centering-elements)
-- [Background Images](#background-images)
-- [RGBA and Opacity](#rgba-and-opacity)
-- [Gradients](#gradients)
-- [Solutions: Black Hole Effect](#solutions-black-hole-effect)
-- [Shadows](#shadows)
-- [Combinators](#combinators)
-- [Attribute Selectors](#attribute-selectors)
-- [Pseudo Classes](#pseudo-classes)
-- [Transitions](#transitions)
-- [Popup/Modal Design](#popupmodal-design)
-- [Flexbox Layout](#flexbox-layout)
-- [Grid Layout](#grid-layout)
-- [Media Query Example Guide](#media-query-example-guide)
-- [Multi Page Website Build Guide](#multi-page-website-build-guide)
+1. [What is HTML?](#what-is-html)
+2. [HTML Tags & Attributes](#html-tags-and-attributes)
+3. [HTML Document Structure](#html-document-structure)
+4. [Adding Images](#adding-images)
+5. [Text Formatting Tags](#text-formatting-tags)
+6. [Links](#links)
+7. [Bookmark Links](#bookmark-links)
+8. [Comments](#comments)
+9. [Lists](#lists)
+10. [Input Types](#input-types)
+11. [Tables](#tables)
+12. [Table Layouts](#table-layouts)
+13. [Videos](#videos)
+14. [Tooltips](#tooltips)
+15. [Adding CSS - Three Methods](#adding-css---three-methods)
+16. [Classes and IDs](#classes-and-ids)
+17. [Colors](#colors)
+18. [Height and Width](#height-and-width)
+19. [Borders](#borders)
+20. [Margin](#margin)
+21. [Padding](#padding)
+22. [Box Sizing](#box-sizing)
+23. [Universal Selector](#universal-selector)
+24. [Block vs Inline Elements](#block-vs-inline-elements)
+25. [Display Property](#display-property)
+26. [Border Radius](#border-radius)
+27. [Text Properties](#text-properties)
+28. [Font Properties](#font-properties)
+29. [Centering Elements](#centering-elements)
+30. [Background Images](#background-images)
+31. [RGBA and Opacity](#rgba-and-opacity)
+32. [Gradients](#gradients)
+33. [Solutions: Black Hole Effect](#solutions-black-hole-effect)
+34. [Shadows](#shadows)
+35. [Combinators](#combinators)
+36. [Attribute Selectors](#attribute-selectors)
+37. [Pseudo Classes](#pseudo-classes)
+38. [Transitions](#transitions)
+39. [Popup/Modal Design](#popupmodal-design)
+40. [Flexbox Layout](#flexbox-layout)
+41. [Grid Layout](#grid-layout)
+42. [Media Query Example Guide](#media-query-example-guide)
+43. [CSS Variables and Theming Guide](#css-variables-and-theming-guide)
+44. [Animation with Keyframes](#animation-with-keyframes)
+45. [Multi Page Website Build Guide](#multi-page-website-build-guide)
+46. [Portfolio Website - Step by Step Build Guide](#portfolio-website---step-by-step-build-guide)
 
 ## What is HTML?
 
@@ -2690,7 +2693,7 @@ document.body.setAttribute("data-theme", "light");
 
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -2699,7 +2702,7 @@ document.body.setAttribute("data-theme", "light");
       /* Theme Variables */
       :root {
         --bg-primary: #ffffff;
-        --text-primary: #0000;
+        --text-primary: #000000;
       }
 
       /* Dark theme */
@@ -2711,35 +2714,220 @@ document.body.setAttribute("data-theme", "light");
       /* Styles */
       body {
         background-color: var(--bg-primary);
+      }
+      h1 {
         color: var(--text-primary);
       }
-
-      .theme-toggle {
-        background: blue;
-        color: var(--bg-primary);
-        border: none;
+      button {
+        cursor: pointer;
       }
     </style>
   </head>
-  <body data-theme="light">
+  <body>
     <h1>Hello</h1>
-    <button class="theme-toggle" onclick="toggleTheme()">Switch Theme</button>
+    <button onclick="toggleTheme()">Switch Theme</button>
 
     <script>
       function toggleTheme() {
-        const body = document.body;
-        const currentTheme = body.getAttribute("data-theme");
-        const newTheme = currentTheme === "light" ? "dark" : "light";
-        const toggleBtn = document.querySelector(".theme-toggle");
-
-        body.setAttribute("data-theme", newTheme);
-        toggleBtn.textContent =
-          newTheme === "light" ? "🌙 Switch Theme" : "☀️ Switch Theme";
+        const html = document.documentElement;
+        const light = html.getAttribute("data-theme") === "light";
+        html.setAttribute("data-theme", light ? "dark" : "light");
       }
     </script>
   </body>
 </html>
 ```
+
+---
+
+# Animation with Keyframes
+
+## What are Keyframes?
+
+Keyframes define the start and end points of smooth transitions in animations. They tell the browser what styles to apply at specific moments during an animation.
+
+## Basic Syntax
+
+```css
+@keyframes animation-name {
+  from {
+    /* starting styles */
+  }
+  to {
+    /* ending styles */
+  }
+}
+```
+
+Or using percentages:
+
+```css
+@keyframes animation-name {
+  0% {
+    /* starting styles */
+  }
+  50% {
+    /* middle styles */
+  }
+  100% {
+    /* ending styles */
+  }
+}
+```
+
+## Simple Examples
+
+### 1. Fade In Animation
+
+```css
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-element {
+  animation: fadeIn 2s ease-in;
+}
+```
+
+### 2. Slide Right Animation
+
+```css
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slide-element {
+  animation: slideRight 1s ease-out;
+}
+```
+
+### 3. Color Change Animation
+
+```css
+@keyframes colorChange {
+  0% {
+    background-color: red;
+  }
+  50% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: green;
+  }
+}
+
+.color-box {
+  animation: colorChange 3s infinite;
+}
+```
+
+### 4. Bounce Animation
+
+```css
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+.bounce-ball {
+  animation: bounce 1s ease-in-out infinite;
+}
+```
+
+### 5. Rotate Animation
+
+```css
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: rotate 2s linear infinite;
+}
+```
+
+## Animation Properties
+
+- `animation-name`: The keyframe name
+- `animation-duration`: How long the animation takes (e.g., 2s, 500ms)
+- `animation-timing-function`: Speed curve (ease, linear, ease-in, ease-out)
+- `animation-delay`: How long the animation waits (e.g., 2s, 500ms)
+- `animation-iteration-count`: How many times to repeat (1, 3, infinite)
+- `animation-direction`: Direction of animation (normal, reverse, alternate)
+
+## Shorthand Example
+
+```css
+.element {
+  animation: slideRight 1s ease-out 0.5s infinite alternate;
+  /*         name duration timing delay iteration direction */
+}
+```
+
+## Key Points
+
+- Use `from` and `to` for simple start/end animations
+- Use percentages (0%, 25%, 50%, 100%) for complex multi-step animations
+- Multiple properties can change simultaneously in one keyframe
+- Animations can be paused, reversed, and repeated
+- Always name your keyframes descriptively
+
+## Quick HTML Example
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .button {
+        animation: pulse 2s infinite;
+        padding: 10px 20px;
+        background: blue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="button">Pulsing Button</button>
+  </body>
+</html>
+```
+
+This creates a button that continuously pulses by scaling up and down.
 
 ---
 
@@ -3150,5 +3338,502 @@ input[type="submit"] {
 ```
 
 **Test this step:** Your form should have rounded input fields and a blue submit button.
+
+---
+
+# Portfolio Website - Step by Step Build Guide
+
+## Project Overview
+
+Build a modern, responsive portfolio website with dark theme, smooth scrolling, and interactive elements. The site includes a hero section, skills showcase, project details, and contact footer.
+
+## Project Structure
+
+```
+portfolio/
+├── index.html
+├── style.css
+└── redman.png (your profile image)
+```
+
+---
+
+## Step 1: Basic HTML Structure & CSS Reset
+
+### HTML Foundation
+
+Create the basic HTML structure with semantic elements:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Content will be added in subsequent steps -->
+  </body>
+</html>
+```
+
+### CSS Variables & Reset
+
+Set up CSS custom properties and basic reset:
+
+```css
+:root {
+  --accent-color: #d52c3a;
+  --primary-color: #1b1c1f;
+  --secondary-color: #101113;
+  --text-color: #d9d9d9;
+  --secondary-text-color: #7f8082;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14pt;
+  color: var(--text-color);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--primary-color);
+}
+```
+
+---
+
+## Step 2: Header Section - HTML Structure
+
+Add the hero/header section with image and text content:
+
+```html
+<header>
+  <img src="redman.png" alt="Profile Image" />
+  <div class="container">
+    <h1>Max Mustermann</h1>
+    <h2>Web Developer and Web Designer in Germany</h2>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
+    <br />
+    <a href="#skill-section" class="read-more">Read More</a>
+  </div>
+</header>
+```
+
+---
+
+## Step 3: Header Section - CSS Styling
+
+Style the header with flexbox layout and responsive design:
+
+```css
+header {
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+}
+
+header .container {
+  width: 850px;
+  max-width: 100%;
+}
+
+header img {
+  height: 70vh;
+}
+
+header h1 {
+  margin-top: 200px;
+  font-size: 4rem;
+}
+
+header h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+header p {
+  color: var(--secondary-text-color);
+}
+```
+
+---
+
+## Step 4: Call-to-Action Button
+
+Style the "Read More" button with hover effects:
+
+```css
+header .read-more {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 500;
+  border-radius: 1000px;
+  padding: 0.5em 1.25em;
+  text-decoration: none;
+  margin-bottom: 80px;
+  transition: 200ms ease;
+  cursor: pointer;
+}
+
+header .read-more:hover {
+  background-color: var(--secondary-color);
+}
+```
+
+---
+
+## Step 5: Skills Section - HTML Structure
+
+Create the skills section with two skill containers:
+
+```html
+<section id="skill-section">
+  <h2>My Skillset</h2>
+  <div class="wrapper">
+    <div class="skill-container">
+      <h3>Front-End</h3>
+      <ul>
+        <li>Adobe Photoshop <progress max="100" value="80"></progress></li>
+        <li>HTML, CSS <progress max="100" value="100"></progress></li>
+        <li>JavaScript <progress max="100" value="100"></progress></li>
+        <li>React.js <progress max="100" value="70"></progress></li>
+      </ul>
+    </div>
+    <div class="skill-container">
+      <h3>Back-End</h3>
+      <ul>
+        <li>Express.js <progress max="100" value="70"></progress></li>
+        <li>Node.js <progress max="100" value="70"></progress></li>
+        <li>Python <progress max="100" value="50"></progress></li>
+        <li>Java <progress max="100" value="70"></progress></li>
+      </ul>
+    </div>
+  </div>
+</section>
+```
+
+---
+
+## Step 6: Skills Section - CSS Layout
+
+Style the skills section with centered layout and flexbox:
+
+```css
+#skill-section {
+  padding: 80px 20px 150px 20px;
+  background-color: var(--secondary-color);
+}
+
+#skill-section h2 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+#skill-section .wrapper {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+```
+
+---
+
+## Step 7: Skills Containers - CSS Styling
+
+Style individual skill containers with borders and progress bars:
+
+```css
+.skill-container {
+  width: 400px;
+  max-width: 100%;
+  border: 10px solid var(--primary-color);
+  border-top: none;
+}
+
+.skill-container h3 {
+  background-color: var(--primary-color);
+  padding: 15px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.skill-container ul {
+  margin: 10px 0;
+  list-style: none;
+}
+
+.skill-container ul li {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.skill-container ul li progress {
+  accent-color: var(--accent-color);
+}
+```
+
+---
+
+## Step 8: Projects Section - HTML Structure
+
+Create the projects section with collapsible details elements:
+
+```html
+<section id="projects-section">
+  <h2>My Top 3 Projects</h2>
+  <div class="flex-container">
+    <details>
+      <summary>
+        <span class="number">1</span>
+        <h3>To-Do List App</h3>
+      </summary>
+      <div class="text-container">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritat</p>
+        <a class="project-link">Visit Website</a>
+      </div>
+    </details>
+    <details>
+      <summary>
+        <span class="number">2</span>
+        <h3>Calculator App</h3>
+      </summary>
+      <div class="text-container">
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores,
+          consequatur .
+        </p>
+        <a class="project-link">Visit Website</a>
+      </div>
+    </details>
+    <details>
+      <summary>
+        <span class="number">3</span>
+        <h3>Fitness Tracker</h3>
+      </summary>
+      <div class="text-container">
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores
+          consequuntur odit
+        </p>
+        <a class="project-link">Visit Website</a>
+      </div>
+    </details>
+  </div>
+</section>
+```
+
+---
+
+## Step 9: Projects Section - CSS Basic Styling
+
+Style the projects section layout and headers:
+
+```css
+#projects-section {
+  padding: 100px 20px;
+}
+
+#projects-section h2 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 60px;
+}
+```
+
+---
+
+## Step 10: Details Elements - CSS Styling
+
+Style the collapsible project details with interactive elements:
+
+```css
+details {
+  margin: 20px auto;
+  width: 1000px;
+  max-width: 100%;
+  background-color: var(--secondary-color);
+  border-radius: 6px;
+}
+
+details summary {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 30px;
+  padding: 30px;
+}
+
+details .number {
+  background-color: var(--accent-color);
+  min-height: 50px;
+  min-width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+details h3 {
+  font-size: 1.75rem;
+}
+
+details .text-container {
+  padding: 30px;
+  padding-top: 0;
+}
+```
+
+---
+
+## Step 11: Project Links - CSS Styling
+
+Style the project link buttons with hover effects:
+
+```css
+details .project-link {
+  display: inline-block;
+  margin-top: 30px;
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.75em 1.5em;
+  border-radius: 2px;
+  font-weight: 500;
+  transition: 300ms ease;
+  cursor: pointer;
+}
+
+details .project-link:hover {
+  background-color: var(--primary-color);
+}
+```
+
+---
+
+## Step 12: Footer Section - HTML Structure
+
+Create the footer with contact information and grid layout:
+
+```html
+<footer>
+  <div class="grid-container">
+    <span id="at-symbol">@</span>
+    <div>
+      <h3>Contact</h3>
+      <a href="mailto:example@email.com">example@email.com</a>
+      <h3>Location</h3>
+      <a href="https://goo.gl/maps/udhCVqJnN65gZLRj7">Berlin, Germany</a>
+    </div>
+    <div>
+      <h3>Projects</h3>
+      <a href="https://www.github.com">Github</a>
+    </div>
+  </div>
+</footer>
+```
+
+---
+
+## Step 13: Footer Section - CSS Grid Layout
+
+Style the footer with CSS Grid and large typography:
+
+```css
+footer {
+  background-color: var(--secondary-color);
+  padding: 100px 20px;
+}
+
+footer .grid-container {
+  margin: 0 auto;
+  width: 1000px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr max-content;
+  gap: 100px;
+}
+
+footer #at-symbol {
+  font-size: 250pt;
+}
+
+footer h3 {
+  margin-top: 80px;
+  font-size: 2rem;
+}
+
+footer a {
+  margin-top: 5px;
+  display: inline-block;
+  color: var(--secondary-text-color);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--text-color);
+}
+```
+
+---
+
+## Step 14: Mobile Responsiveness - Media Queries
+
+Add responsive design for mobile devices:
+
+```css
+@media (max-width: 1000px) {
+  header {
+    padding: 100px 20px;
+    text-align: center;
+  }
+
+  header h1 {
+    margin-top: 0;
+    font-size: 10vw;
+  }
+
+  header h2 {
+    font-size: 1.3rem;
+  }
+
+  header img {
+    display: none;
+  }
+
+  footer .grid-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+  }
+
+  footer #at-symbol {
+    font-size: 150pt;
+  }
+
+  footer h3 {
+    margin-top: 50px;
+  }
+}
+```
 
 ---
