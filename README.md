@@ -40,14 +40,16 @@
 36. [Attribute Selectors](#attribute-selectors)
 37. [Pseudo Classes](#pseudo-classes)
 38. [Transitions](#transitions)
-39. [Popup/Modal Design](#popupmodal-design)
-40. [Flexbox Layout](#flexbox-layout)
-41. [Grid Layout](#grid-layout)
-42. [Media Query Example Guide](#media-query-example-guide)
-43. [CSS Variables and Theming Guide](#css-variables-and-theming-guide)
-44. [Animation with Keyframes](#animation-with-keyframes)
-45. [Multi Page Website Build Guide](#multi-page-website-build-guide)
-46. [Portfolio Website - Step by Step Build Guide](#portfolio-website---step-by-step-build-guide)
+39. [Positioning](#positioning)
+40. [Pseudo Elements](#pseudo-elements)
+41. [Popup/Modal Design](#popupmodal-design)
+42. [Flexbox Layout](#flexbox-layout)
+43. [Grid Layout](#grid-layout)
+44. [Media Query Example Guide](#media-query-example-guide)
+45. [CSS Variables and Theming Guide](#css-variables-and-theming-guide)
+46. [Animation with Keyframes](#animation-with-keyframes)
+47. [Multi Page Website Build Guide](#multi-page-website-build-guide)
+48. [Portfolio Website - Step by Step Build Guide](#portfolio-website---step-by-step-build-guide)
 
 ## What is HTML?
 
@@ -2145,6 +2147,452 @@ CSS transitions create smooth animations between property changes, enhancing use
 - `linear`: Constant speed
 - `ease-in-out`: Slow start and end
 - `cubic-bezier()`: Custom curves
+
+---
+
+# Positioning
+
+CSS positioning controls how elements are placed and behave on a webpage. There are five main position values: `static`, `relative`, `absolute`, `fixed`, and `sticky`.
+
+## 1. Position: Static (Default)
+
+Elements with `position: static` follow the normal document flow. They cannot be moved using `top`, `right`, `bottom`, or `left` properties.
+
+```css
+.static-element {
+  position: static;
+  /* top, right, bottom, left have no effect */
+}
+```
+
+```html
+<div class="static-element">I'm in normal document flow</div>
+```
+
+## 2. Position: Relative
+
+Elements with `position: relative` remain in the normal document flow but can be offset from their original position using `top`, `right`, `bottom`, or `left`.
+
+```css
+.relative-element {
+  position: relative;
+  top: 20px;
+  left: 30px;
+  background-color: lightblue;
+}
+```
+
+```html
+<div class="relative-element">I'm offset from my original position</div>
+```
+
+**Key Points:**
+
+- Element still occupies its original space in the document flow
+- Other elements are not affected by the offset
+- Creates a positioning context for absolutely positioned children
+
+## 3. Position: Absolute
+
+Elements with `position: absolute` are removed from the normal document flow and positioned relative to their nearest positioned ancestor (or the viewport if none exists).
+
+```css
+.container {
+  position: relative; /* Creates positioning context */
+  width: 300px;
+  height: 200px;
+  border: 2px solid #333;
+}
+
+.absolute-element {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  background-color: lightcoral;
+  width: 100px;
+  height: 50px;
+}
+```
+
+```html
+<div class="container">
+  <div class="absolute-element">I'm absolutely positioned</div>
+</div>
+```
+
+**Key Points:**
+
+- Removed from document flow (doesn't affect other elements)
+- Positioned relative to nearest positioned ancestor
+- Can overlap other elements
+
+## 4. Position: Fixed
+
+Elements with `position: fixed` are positioned relative to the viewport and remain in the same position even when scrolling.
+
+```css
+.fixed-element {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: lightgreen;
+  padding: 10px;
+  z-index: 1000;
+}
+```
+
+```html
+<div class="fixed-element">I stay in place while scrolling</div>
+```
+
+**Key Points:**
+
+- Always positioned relative to the viewport
+- Stays in place during scrolling
+- Removed from document flow
+- Common for navigation bars, modals, or floating buttons
+
+## 5. Position: Sticky
+
+Elements with `position: sticky` act like `relative` until they reach a specified scroll position, then become `fixed`.
+
+```css
+.sticky-element {
+  position: sticky;
+  top: 0;
+  background-color: lightyellow;
+  padding: 10px;
+  border-bottom: 2px solid #333;
+}
+```
+
+```html
+<div class="content">
+  <div class="sticky-element">I stick to the top when scrolling</div>
+  <p>Lots of content here...</p>
+</div>
+```
+
+**Key Points:**
+
+- Hybrid between `relative` and `fixed`
+- Sticks when reaching the specified threshold
+- Must specify at least one of: `top`, `right`, `bottom`, or `left`
+- Perfect for sticky headers or sidebars
+
+## Complete Example
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .demo-container {
+        height: 150px;
+        border: 2px dashed #ccc;
+        position: relative;
+        margin: 20px 0;
+      }
+
+      .relative-demo {
+        position: relative;
+        top: 20px;
+        left: 50px;
+        background: lightblue;
+        padding: 10px;
+      }
+
+      .absolute-demo {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: lightcoral;
+        padding: 10px;
+      }
+
+      .fixed-demo {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: lightgreen;
+        padding: 10px;
+        z-index: 100;
+      }
+
+      .sticky-demo {
+        position: sticky;
+        top: 0;
+        background: lightyellow;
+        padding: 10px;
+        border-bottom: 2px solid #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="demo-container">
+      <div class="relative-demo">Relative Position</div>
+      <div class="absolute-demo">Absolute Position</div>
+    </div>
+
+    <div class="fixed-demo">Fixed Position</div>
+
+    <div style="position: relative">
+      <div class="sticky-demo">Sticky Header 1</div>
+      <p>lorem-1000</p>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <div style="position: relative">
+      <div class="sticky-demo">Sticky Header 2</div>
+      <p>lorem-1000</p>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  </body>
+</html>
+```
+
+---
+
+# Pseudo Elements
+
+Pseudo elements allow you to style specific parts of an element or insert content without adding extra HTML. They use double colons (`::`) in modern CSS.
+
+## What are Pseudo Elements?
+
+Pseudo elements create virtual elements that don't exist in your HTML but can be styled with CSS. They're perfect for adding decorative content, styling specific parts of text, or creating visual effects.
+
+## Common Pseudo Elements
+
+### 1. ::before and ::after
+
+These create virtual elements before or after an element's content. They require the `content` property to be visible.
+
+```css
+.quote::before {
+  content: '"';
+  font-size: 2em;
+  color: #666;
+}
+
+.quote::after {
+  content: '"';
+  font-size: 2em;
+  color: #666;
+}
+```
+
+```html
+<p class="quote">This is a quoted text</p>
+<!-- Renders as: "This is a quoted text" -->
+```
+
+### 2. ::first-line
+
+Styles the first line of text in a block element.
+
+```css
+.article::first-line {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.2em;
+}
+```
+
+```html
+<p class="article">
+  This first line will be styled differently. The rest of the paragraph will
+  have normal styling.
+</p>
+```
+
+### 3. ::first-letter
+
+Styles the first letter of the first line in a block element.
+
+```css
+.drop-cap::first-letter {
+  font-size: 3em;
+  float: left;
+  line-height: 1;
+  margin-right: 5px;
+  color: #c0392b;
+}
+```
+
+```html
+<p class="drop-cap">
+  This paragraph has a decorative first letter that stands out.
+</p>
+```
+
+### 4. ::selection
+
+Styles the portion of text selected by the user.
+
+```css
+::selection {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Firefox compatibility */
+::-moz-selection {
+  background-color: #3498db;
+  color: white;
+}
+```
+
+```html
+<p>Try selecting this text to see the custom selection style!</p>
+```
+
+### 5. ::placeholder
+
+Styles placeholder text in input fields.
+
+```css
+input::placeholder {
+  color: #999;
+  font-style: italic;
+  opacity: 0.8;
+}
+```
+
+```html
+<input type="text" placeholder="Enter your name here" />
+```
+
+## Complete Example
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .demo-container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+
+      /* First letter styling */
+      .drop-cap::first-letter {
+        font-size: 3em;
+        float: left;
+        line-height: 1;
+        margin-right: 8px;
+        color: #e74c3c;
+        font-weight: bold;
+      }
+
+      /* Quote styling */
+      .quote {
+        font-style: italic;
+        margin: 20px 0;
+        position: relative;
+        display: inline;
+      }
+
+      .quote::before,
+      .quote::after {
+        content: '"';
+        font-size: 2em;
+        color: #3498db;
+        position: absolute;
+      }
+
+      .quote::before {
+        left: -20px;
+        top: -10px;
+      }
+
+      .quote::after {
+        right: -20px;
+        top: -10px;
+      }
+
+      /* Custom selection */
+      ::selection {
+        background: #f39c12;
+        color: white;
+      }
+
+      /* Placeholder styling */
+      input::placeholder {
+        color: #95a5a6;
+        font-style: italic;
+      }
+
+      input {
+        padding: 10px;
+        border: 2px solid #bdc3c7;
+        border-radius: 4px;
+        width: 100%;
+        margin: 10px 0;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="demo-container">
+      <p class="drop-cap">
+        This paragraph demonstrates the first-letter pseudo element. Notice how
+        the first letter is styled differently from the rest. Lorem ipsum dolor
+        sit amet, consectetur adipisicing elit. Consequatur perspiciatis commodi
+        tenetur nam praesentium nisi quasi laudantium autem aliquid temporibus?
+        Tempore ullam voluptatibus nemo ipsam magnam necessitatibus, iure earum
+        accusantium.
+      </p>
+
+      <p class="quote">
+        This is a quoted text that shows before and after pseudo elements.
+      </p>
+
+      <input
+        type="text"
+        placeholder="Try typing here and see the placeholder style"
+      />
+
+      <p>
+        Try selecting any text on this page to see custom selection styling!
+      </p>
+    </div>
+  </body>
+</html>
+```
+
+```html
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        position: relative;
+        display: inline;
+      }
+      h1::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0%;
+        height: 2px;
+        background: blue;
+        transition: all 1s ease-in-out;
+      }
+      h1:hover::after {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HOme</h1>
+  </body>
+</html>
+```
 
 ---
 
