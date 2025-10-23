@@ -1183,7 +1183,13 @@ HTML elements are categorized into two main display types: **Block** and **Inlin
 - Only take up as much width as necessary
 - Don't start on a new line
 - Width and height properties are ignored
-- Examples: `<a>`, `<span>`, `<strong>`, `<button>`, `<img>`
+- Examples: `<a>`, `<span>`, `<strong>`
+
+### Inline-Block Elements
+
+- Only take up as much width as necessary but Width and height properties can be set
+- Combines features of both block and inline elments
+- Examples: `<img>`, `<button>`, `<input>`
 
 ### Example Code
 
@@ -2763,24 +2769,182 @@ Flexbox is a one-dimensional layout method that allows you to arrange items in r
 
 ## Grid Layout
 
-### Overview
-
 CSS Grid is a two-dimensional layout system that allows you to create complex layouts with rows and columns. It's perfect for creating bento-box style layouts and precise positioning.
 
-### Key Grid Concepts
+## Key Grid Concepts
 
-**Grid Container Properties:**
+### Grid Container Properties
 
 - `display: grid` - Creates a grid container
 - `grid-template-columns` - Defines column sizes
 - `grid-template-rows` - Defines row sizes
-- `gap` - Sets spacing between grid items
+- `gap` - Sets spacing between grid items (shorthand for `row-gap` and `column-gap`)
+- `grid-template-areas` - Defines named grid areas for easier item placement
 
-**Grid Item Properties:**
+### Grid Item Properties
 
 - `grid-row` - Specifies which rows an item spans
 - `grid-column` - Specifies which columns an item spans
 - `grid-area` - Names a grid area for easier positioning
+
+---
+
+## Alignment Properties
+
+### Container-Level Alignment
+
+These properties are applied to the **grid container** and affect the positioning of all grid items.
+
+#### `justify-items` (Horizontal Alignment of Items)
+
+Controls how grid items are aligned horizontally **within their grid cells**.
+
+- **`stretch`** (default) - Items stretch to fill the entire width of the cell
+- **`start`** - Items align to the left edge of the cell
+- **`end`** - Items align to the right edge of the cell
+- **`center`** - Items align to the center of the cell
+
+```css
+.grid-container {
+  display: grid;
+  justify-items: center; /* Centers all items horizontally in their cells */
+}
+```
+
+#### `align-items` (Vertical Alignment of Items)
+
+Controls how grid items are aligned vertically **within their grid cells**.
+
+- **`stretch`** (default) - Items stretch to fill the entire height of the cell
+- **`start`** - Items align to the top edge of the cell
+- **`end`** - Items align to the bottom edge of the cell
+- **`center`** - Items align to the center of the cell
+
+```css
+.grid-container {
+  display: grid;
+  align-items: center; /* Centers all items vertically in their cells */
+}
+```
+
+#### `place-items` (Shorthand)
+
+A shorthand for setting both `align-items` and `justify-items`.
+
+```css
+.grid-container {
+  place-items: center; /* Centers items both vertically and horizontally */
+  /* Equivalent to: align-items: center; justify-items: center; */
+}
+
+.grid-container {
+  place-items: start end; /* align-items: start; justify-items: end; */
+}
+```
+
+---
+
+#### `justify-content` (Horizontal Alignment of Grid)
+
+Controls how the **entire grid** is aligned horizontally within the container (when grid is smaller than container).
+
+- **`start`** - Grid aligns to the left
+- **`end`** - Grid aligns to the right
+- **`center`** - Grid aligns to the center
+- **`stretch`** - Grid stretches to fill the container width
+- **`space-between`** - Equal space between columns, no space at edges
+- **`space-around`** - Equal space around columns
+- **`space-evenly`** - Equal space between and around columns
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  width: 500px;
+  justify-content: center; /* Centers the entire grid horizontally */
+}
+```
+
+#### `align-content` (Vertical Alignment of Grid)
+
+Controls how the **entire grid** is aligned vertically within the container (when grid is smaller than container).
+
+- **`start`** - Grid aligns to the top
+- **`end`** - Grid aligns to the bottom
+- **`center`** - Grid aligns to the center
+- **`stretch`** - Grid stretches to fill the container height
+- **`space-between`** - Equal space between rows, no space at edges
+- **`space-around`** - Equal space around rows
+- **`space-evenly`** - Equal space between and around rows
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-rows: 100px 100px;
+  height: 400px;
+  align-content: center; /* Centers the entire grid vertically */
+}
+```
+
+#### `place-content` (Shorthand)
+
+A shorthand for setting both `align-content` and `justify-content`.
+
+```css
+.grid-container {
+  place-content: center; /* Centers the grid both ways */
+  /* Equivalent to: align-content: center; justify-content: center; */
+}
+```
+
+---
+
+### Item-Level Alignment
+
+These properties are applied to **individual grid items** and override container-level alignment.
+
+#### `justify-self` (Individual Horizontal Alignment)
+
+Controls how a specific item is aligned horizontally within its cell.
+
+- **`stretch`** (default)
+- **`start`** - Align to left
+- **`end`** - Align to right
+- **`center`** - Align to center
+
+```css
+.grid-item {
+  justify-self: end; /* This item aligns to the right */
+}
+```
+
+#### `align-self` (Individual Vertical Alignment)
+
+Controls how a specific item is aligned vertically within its cell.
+
+- **`stretch`** (default)
+- **`start`** - Align to top
+- **`end`** - Align to bottom
+- **`center`** - Align to center
+
+```css
+.grid-item {
+  align-self: start; /* This item aligns to the top */
+}
+```
+
+#### `place-self` (Shorthand)
+
+A shorthand for setting both `align-self` and `justify-self`.
+
+```css
+.grid-item {
+  place-self: center; /* Centers this item in its cell */
+  /* Equivalent to: align-self: center; justify-self: center; */
+}
+```
+
+---
 
 ### Example 1: Basic Bento Grid
 

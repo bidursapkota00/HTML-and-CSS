@@ -22,15 +22,3 @@ ul,
 li {
   all: unset;
 }
-
-.icon__container {
-  position: relative;
-  width: 300px;
-}
-
-.mobile__icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
