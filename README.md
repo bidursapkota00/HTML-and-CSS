@@ -1,5 +1,9 @@
 # HTML / CSS Basics Guide
 
+![Bidur Sapkota](https://www.bidursapkota.com.np/_next/image?url=%2Fimages%2Fprofile3.png&w=48&q=75 "Bidur Sapkota - Developer")&nbsp;[Bidur Sapkota](https://www.bidursapkota.com.np/)
+
+![HTML, CSS with Portfolio Project Guide by Bidur Sapkota](/test.jpg "HTML, CSS with Portfolio Project Guide – Blog by Bidur Sapkota")
+
 ## Table of Contents
 
 1. [What is HTML?](#what-is-html)
@@ -34,22 +38,21 @@
 30. [Background Images](#background-images)
 31. [RGBA and Opacity](#rgba-and-opacity)
 32. [Gradients](#gradients)
-33. [Solutions: Black Hole Effect](#solutions-black-hole-effect)
-34. [Shadows](#shadows)
-35. [Combinators](#combinators)
-36. [Attribute Selectors](#attribute-selectors)
-37. [Pseudo Classes](#pseudo-classes)
-38. [Transitions](#transitions)
-39. [Positioning](#positioning)
-40. [Pseudo Elements](#pseudo-elements)
-41. [Popup/Modal Design](#popupmodal-design)
-42. [Flexbox Layout](#flexbox-layout)
-43. [Grid Layout](#grid-layout)
-44. [Media Query Example Guide](#media-query-example-guide)
-45. [CSS Variables and Theming Guide](#css-variables-and-theming-guide)
-46. [Animation with Keyframes](#animation-with-keyframes)
-47. [Multi Page Website Build Guide](#multi-page-website-build-guide)
-48. [Portfolio Website - Step by Step Build Guide](#portfolio-website---step-by-step-build-guide)
+33. [Shadows](#shadows)
+34. [Combinators](#combinators)
+35. [Attribute Selectors](#attribute-selectors)
+36. [Pseudo Classes](#pseudo-classes)
+37. [Transitions](#transitions)
+38. [Positioning](#positioning)
+39. [Pseudo Elements](#pseudo-elements)
+40. [Popup/Modal Design](#popupmodal-design)
+41. [Flexbox Layout](#flexbox-layout)
+42. [Grid Layout](#grid-layout)
+43. [Media Query Example Guide](#media-query-example-guide)
+44. [CSS Variables and Theming Guide](#css-variables-and-theming-guide)
+45. [Animation with Keyframes](#animation-with-keyframes)
+46. [Multi Page Website Build Guide](#multi-page-website-build-guide)
+47. [Portfolio Website](#portfolio-website)
 
 ## What is HTML?
 
@@ -170,14 +173,14 @@ Every HTML document should have a proper structure:
 ### Basic Image:
 
 ```html
-<img src="images/brandenburgertor.jpg" />
+<img src="images/building.jpg" />
 ```
 
 ### Improved Image with Attributes:
 
 ```html
 <img
-  src="images/brandenburgertor.jpg"
+  src="images/building.jpg"
   height="300"
   alt="An image of the Brandenburger Tor in Berlin"
 />
@@ -572,7 +575,7 @@ HTML tables organize data in rows and columns.
           <img
             height="200px"
             width="300px"
-            src="brandenburgertor.jpg"
+            src="building.jpg"
             alt="Brandenburger Tor"
           />
         </td>
@@ -1620,7 +1623,7 @@ Background images allow you to set images as backgrounds for elements. You can c
     <title>Background Image</title>
     <style>
       body {
-        background-image: url("brandenburgertor.jpg");
+        background-image: url("building.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
@@ -1671,7 +1674,7 @@ Transparency in CSS can be achieved through RGBA colors or the opacity property.
       body {
         height: 100vh;
         padding: 50px;
-        background-image: url("brandenburgertor.jpg");
+        background-image: url("building.jpg");
         background-repeat: no-repeat;
         background-size: cover;
       }
@@ -1718,6 +1721,7 @@ CSS gradients create smooth transitions between colors. There are two main types
 - **Linear**: Colors transition in a straight line
 - **Radial**: Colors transition from center outward
 - The values to top, to bottom, to left, and to right are equivalent to the angles 0deg, 180deg, 270deg, and 90deg, respectively. o deg = bottom to top [ to top ]
+- There can be multiple background. (colors, image)
 
 ### Example Code:
 
@@ -1761,56 +1765,6 @@ CSS gradients create smooth transitions between colors. There are two main types
 - **Linear**: `linear-gradient(direction, color-stops)`
 - **Radial**: `radial-gradient(shape, color-stops)`
 - **Color stops**: Percentage or pixel values where colors change
-
----
-
-## Solutions: Black Hole Effect
-
-This advanced technique combines radial gradients with background images to create a black hole effect.
-
-### Technique:
-
-- Layer multiple backgrounds
-- Use radial gradient for the hole effect
-- Combine with space/universe background
-
-### Example Code:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Black hole</title>
-    <style>
-      div {
-        margin: 20px;
-        width: 200px;
-        height: 200px;
-        border: 1px solid black;
-      }
-      .black-hole {
-        background-image: radial-gradient(
-            black 30%,
-            white 31%,
-            transparent 39%
-          ), url(universe.jpg);
-        background-size: cover;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="black-hole"></div>
-  </body>
-</html>
-```
-
-### Key Concepts:
-
-- Multiple backgrounds separated by commas
-- Precise color stops create sharp edges
-- `transparent` keyword for see-through areas
 
 ---
 
@@ -3789,499 +3743,933 @@ input[type="submit"] {
 
 ---
 
-# Portfolio Website - Step by Step Build Guide
+# Portfolio Website
 
-## Project Overview
+A comprehensive guide to building a professional responsive mobile first portfolio website from scratch using HTML and CSS.
 
-Build a modern, responsive portfolio website with dark theme, smooth scrolling, and interactive elements. The site includes a hero section, skills showcase, project details, and contact footer.
+### Project Structure:
 
-## Project Structure
-
-```
-portfolio/
+```text
+project/
 ├── index.html
-├── style.css
-└── redman.png (your profile image)
+├── css/
+│   ├── globals.css
+│   ├── common.css
+│   ├── sidebar.css
+│   ├── hero.css
+│   ├── about.css
+│   ├── work-count.css
+│   ├── skills.css
+│   └── contact.css
+└── images/
+    ├── profile.png
+    ├── bg.jpg
+    └── photo.jpg
 ```
 
 ---
 
-## Step 1: Basic HTML Structure & CSS Reset
+### Project Setup & Global Styles
 
-### HTML Foundation
+#### HTML Setup
 
-Create the basic HTML structure with semantic elements:
+Create `index.html` with basic structure:
 
 ```html
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Bidur Sapkota - Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/globals.css" />
   </head>
   <body>
-    <!-- Content will be added in subsequent steps -->
+    <h1>Hello World!</h1>
   </body>
 </html>
 ```
 
-### CSS Variables & Reset
+#### CSS - globals.css
 
-Set up CSS custom properties and basic reset:
+Create `css/globals.css`:
 
 ```css
-:root {
-  --accent-color: #d52c3a;
-  --primary-color: #1b1c1f;
-  --secondary-color: #101113;
-  --text-color: #d9d9d9;
-  --secondary-text-color: #7f8082;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
 html {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14pt;
-  color: var(--text-color);
   scroll-behavior: smooth;
 }
 
 body {
-  min-height: 100vh;
-  background-color: var(--primary-color);
-}
-```
-
----
-
-## Step 2: Header Section - HTML Structure
-
-Add the hero/header section with image and text content:
-
-```html
-<header>
-  <img src="redman.png" alt="Profile Image" />
-  <div class="container">
-    <h1>Max Mustermann</h1>
-    <h2>Web Developer and Web Designer in Germany</h2>
-    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
-    <br />
-    <a href="#skill-section" class="read-more">Read More</a>
-  </div>
-</header>
-```
-
----
-
-## Step 3: Header Section - CSS Styling
-
-Style the header with flexbox layout and responsive design:
-
-```css
-header {
-  padding: 0 20px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap-reverse;
+  font-family: "Quicksand", sans-serif;
+  margin: unset;
 }
 
-header .container {
-  width: 850px;
-  max-width: 100%;
-}
-
-header img {
-  height: 70vh;
-}
-
-header h1 {
-  margin-top: 200px;
-  font-size: 4rem;
-}
-
-header h2 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  font-weight: 300;
-}
-
-header p {
-  color: var(--secondary-text-color);
-}
-```
-
----
-
-## Step 4: Call-to-Action Button
-
-Style the "Read More" button with hover effects:
-
-```css
-header .read-more {
-  display: inline-block;
-  background-color: var(--accent-color);
-  color: white;
-  font-size: 1.25rem;
-  font-weight: 500;
-  border-radius: 1000px;
-  padding: 0.5em 1.25em;
+a {
   text-decoration: none;
-  margin-bottom: 80px;
-  transition: 200ms ease;
-  cursor: pointer;
 }
 
-header .read-more:hover {
-  background-color: var(--secondary-color);
+h1,
+h2,
+h3,
+p {
+  all: unset;
+  display: block;
+}
+
+ul,
+li {
+  all: unset;
 }
 ```
 
 ---
 
-## Step 5: Skills Section - HTML Structure
+### Hero Section
 
-Create the skills section with two skill containers:
+#### HTML
+
+Add after the sidebar `</nav>`:
 
 ```html
-<section id="skill-section">
-  <h2>My Skillset</h2>
-  <div class="wrapper">
-    <div class="skill-container">
-      <h3>Front-End</h3>
-      <ul>
-        <li>Adobe Photoshop <progress max="100" value="80"></progress></li>
-        <li>HTML, CSS <progress max="100" value="100"></progress></li>
-        <li>JavaScript <progress max="100" value="100"></progress></li>
-        <li>React.js <progress max="100" value="70"></progress></li>
-      </ul>
-    </div>
-    <div class="skill-container">
-      <h3>Back-End</h3>
-      <ul>
-        <li>Express.js <progress max="100" value="70"></progress></li>
-        <li>Node.js <progress max="100" value="70"></progress></li>
-        <li>Python <progress max="100" value="50"></progress></li>
-        <li>Java <progress max="100" value="70"></progress></li>
-      </ul>
-    </div>
-  </div>
+<section id="hero">
+  <h1 class="hero__job">
+    Hi! <br />
+    I am Bidur, <br />
+    Full Stack Developer
+  </h1>
+  <h2 class="hero__edu">Electronics, Communication and Information Engineer</h2>
+  <button class="hero__btn">Download CV <i class="fa fa-download"></i></button>
 </section>
 ```
 
----
+#### CSS - hero.css
 
-## Step 6: Skills Section - CSS Layout
+Create `css/hero.css`:
 
-Style the skills section with centered layout and flexbox:
-
-```css
-#skill-section {
-  padding: 80px 20px 150px 20px;
-  background-color: var(--secondary-color);
-}
-
-#skill-section h2 {
-  font-size: 3rem;
-  text-align: center;
-}
-
-#skill-section .wrapper {
-  margin-top: 60px;
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  flex-wrap: wrap;
-}
-```
-
----
-
-## Step 7: Skills Containers - CSS Styling
-
-Style individual skill containers with borders and progress bars:
-
-```css
-.skill-container {
-  width: 400px;
-  max-width: 100%;
-  border: 10px solid var(--primary-color);
-  border-top: none;
-}
-
-.skill-container h3 {
-  background-color: var(--primary-color);
-  padding: 15px 0;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.skill-container ul {
-  margin: 10px 0;
-  list-style: none;
-}
-
-.skill-container ul li {
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.skill-container ul li progress {
-  accent-color: var(--accent-color);
-}
-```
-
----
-
-## Step 8: Projects Section - HTML Structure
-
-Create the projects section with collapsible details elements:
+Add to `index.html` head:
 
 ```html
-<section id="projects-section">
-  <h2>My Top 3 Projects</h2>
-  <div class="flex-container">
-    <details>
-      <summary>
-        <span class="number">1</span>
-        <h3>To-Do List App</h3>
-      </summary>
-      <div class="text-container">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritat</p>
-        <a class="project-link">Visit Website</a>
-      </div>
-    </details>
-    <details>
-      <summary>
-        <span class="number">2</span>
-        <h3>Calculator App</h3>
-      </summary>
-      <div class="text-container">
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores,
-          consequatur .
-        </p>
-        <a class="project-link">Visit Website</a>
-      </div>
-    </details>
-    <details>
-      <summary>
-        <span class="number">3</span>
-        <h3>Fitness Tracker</h3>
-      </summary>
-      <div class="text-container">
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores
-          consequuntur odit
-        </p>
-        <a class="project-link">Visit Website</a>
-      </div>
-    </details>
-  </div>
-</section>
+<link rel="stylesheet" href="css/hero.css" />
 ```
 
----
-
-## Step 9: Projects Section - CSS Basic Styling
-
-Style the projects section layout and headers:
-
 ```css
-#projects-section {
-  padding: 100px 20px;
-}
-
-#projects-section h2 {
-  font-size: 3rem;
-  text-align: center;
-  margin-bottom: 60px;
-}
-```
-
----
-
-## Step 10: Details Elements - CSS Styling
-
-Style the collapsible project details with interactive elements:
-
-```css
-details {
-  margin: 20px auto;
-  width: 1000px;
-  max-width: 100%;
-  background-color: var(--secondary-color);
-  border-radius: 6px;
-}
-
-details summary {
+#hero {
+  background-color: #efe7ec;
+  background-image: url("../images/photo.jpg");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+  height: 100vh;
   display: flex;
-  align-items: center;
-  cursor: pointer;
-  gap: 30px;
-  padding: 30px;
-}
-
-details .number {
-  background-color: var(--accent-color);
-  min-height: 50px;
-  min-width: 50px;
-  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  font-size: 1.2rem;
+  align-items: flex-start;
+  padding: 0 30px;
+}
+.hero__job {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  line-height: 1.3;
   font-weight: 700;
+  margin-bottom: 20px;
 }
 
-details h3 {
-  font-size: 1.75rem;
+.hero__edu {
+  font-family: "Quicksand", sans-serif;
+  line-height: 1.5;
+  margin-bottom: 50px;
+  font-weight: 300;
+  color: black;
 }
 
-details .text-container {
-  padding: 30px;
-  padding-top: 0;
+.hero__btn {
+  width: 300px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: normal;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-family: "Quicksand", sans-serif;
+  border-radius: 2px;
+  border: 1px solid black;
+  cursor: pointer;
+  background-color: transparent;
 }
 ```
 
 ---
 
-## Step 11: Project Links - CSS Styling
+### About Section
 
-Style the project link buttons with hover effects:
+#### HTML
+
+Add after hero section:
+
+```html
+<section id="about" class="section">
+  <span class="section__title">about us</span>
+  <h2 class="section__subtitle">who am i?</h2>
+
+  <p class="about__description">
+    <strong>Hi! I am Your Name</strong>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, sint
+    dolorem. Animi nemo officia dolores harum.
+  </p>
+
+  <p class="about__description">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius soluta
+    laudantium, illo iusto aliquid recusandae.
+  </p>
+
+  <div class="about__skills">
+    <div class="about__box">
+      <i class="fa-solid fa-ear-listen"></i>
+      <h3>Graphic design</h3>
+    </div>
+    <div class="about__box">
+      <i class="fa-solid fa-globe"></i>
+      <h3>web design</h3>
+    </div>
+    <div class="about__box">
+      <i class="fa-solid fa-database"></i>
+      <h3>Software</h3>
+    </div>
+    <div class="about__box">
+      <i class="fa-solid fa-mobile"></i>
+      <h3>application</h3>
+    </div>
+  </div>
+
+  <div class="about__happy">
+    <h2>I am happy to know you that 300+ projects done successfully!</h2>
+    <button>hire me</button>
+  </div>
+</section>
+```
+
+---
+
+#### About Section - CSS Styling
+
+#### Reusable Section Styles
+
+#### CSS - common.css
+
+Create `css/common.css`:
+
+Add to `index.html` head:
+
+```html
+<link rel="stylesheet" href="css/common.css" />
+```
 
 ```css
-details .project-link {
-  display: inline-block;
-  margin-top: 30px;
-  background-color: var(--accent-color);
-  color: white;
-  padding: 0.75em 1.5em;
-  border-radius: 2px;
+.section {
+  margin-top: 100px;
+  padding: 15px;
+}
+
+.section__title {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #999999;
   font-weight: 500;
-  transition: 300ms ease;
+  letter-spacing: 5px;
+}
+
+.section__subtitle {
+  margin-bottom: 45px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  line-height: 1.8;
+  color: black;
+  font-family: "Playfair Display", serif;
+}
+```
+
+#### Non-Reusable Section Styles
+
+#### CSS - about.css
+
+Create `css/about.css`:
+
+Add to `index.html` head:
+
+```html
+<link rel="stylesheet" href="css/about.css" />
+```
+
+```css
+.about__description {
+  font-family: "Quicksand", sans-serif;
+  font-weight: normal;
+  line-height: 1.8;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.about__description:last-of-type {
+  margin-bottom: 40px;
+}
+
+.about__box {
+  color: #fff;
+  border-bottom: 2px solid #2c98f0;
+  padding: 24px;
+  box-shadow: 0px 0px 56px -8px rgba(0, 0, 0, 0.17);
+  margin-bottom: 50px;
+}
+
+.about__box > i {
+  margin-bottom: 20px;
+  color: #2c98f0;
+  font-size: 30px;
+}
+
+.about__box > h3 {
+  font-size: 16px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 30px;
+  text-transform: capitalize;
+}
+
+.about__box:nth-child(2) {
+  border-color: #ec5453;
+}
+
+.about__box:nth-child(2) > i {
+  color: #ec5453;
+}
+
+.about__box:nth-child(3) {
+  border-color: #f9bf3f;
+}
+
+.about__box:nth-child(3) > i {
+  color: #f9bf3f;
+}
+
+.about__box:last-child {
+  border-color: #a84cb8;
+}
+
+.about__box:last-child > i {
+  color: #a84cb8;
+}
+
+.about__happy {
+  padding: 30px;
+  background: #f9bf3f;
+}
+
+.about__happy > h2 {
+  font-family: "Playfair Display", serif;
+  color: black;
+  font-weight: normal;
+  margin-bottom: 30px;
+  line-height: 1.5;
+  font-size: 30px;
+}
+
+.about__happy > button {
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid black;
+  padding: 2px 10px;
+  background: transparent;
+}
+```
+
+---
+
+### Work Statistics Section
+
+#### HTML
+
+Add after about section:
+
+```html
+<section id="work__count">
+  <span>309</span>
+  <span>cups of coffee</span>
+  <span>356</span>
+  <span>projects</span>
+  <span>30</span>
+  <span>clients</span>
+  <span>10</span>
+  <span>partners</span>
+</section>
+```
+
+#### CSS - work-count.css
+
+Create `css/work-count.css`:
+
+Add to `index.html` head:
+
+```html
+<link rel="stylesheet" href="css/work-count.css" />
+```
+
+```css
+#work__count {
+  background-image: url("../images/bg.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 70px 15px;
+  margin-top: 100px;
+  position: relative;
+}
+
+#work__count::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+#work__count > span {
+  display: block;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+#work__count > :nth-child(odd) {
+  font-size: 40px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: white;
+}
+
+#work__count > :nth-child(even) {
+  font-size: 14px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-family: "Quicksand", sans-serif;
+  font-weight: normal;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.7);
+}
+```
+
+---
+
+### Skills Section
+
+#### HTML
+
+Add after work count section:
+
+```html
+<section id="skills" class="section">
+  <span class="section__title">my speciality</span>
+  <span class="section__subtitle">my skills</span>
+
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt maiores
+    ducimus id consequatur? Natus obcaecati.
+  </p>
+
+  <div class="skill__box">
+    <div class="skill">
+      <span>Photoshop</span>
+      <div class="skill__percent__box">
+        <div class="skill__percent">
+          <span>75%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <span>React Js</span>
+      <div class="skill__percent__box">
+        <div
+          class="skill__percent"
+          style="width: 60%; background: #ec5453; color: #ec5453"
+        >
+          <span>60%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <span>HTML5</span>
+      <div class="skill__percent__box">
+        <div
+          class="skill__percent"
+          style="width: 85%; background: #f9bf3f; color: #f9bf3f"
+        >
+          <span>85%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <span>CSS3</span>
+      <div class="skill__percent__box">
+        <div
+          class="skill__percent"
+          style="width: 90%; background: #a84cb8; color: #a84cb8"
+        >
+          <span>90%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <span>Wordpress</span>
+      <div class="skill__percent__box">
+        <div
+          class="skill__percent"
+          style="width: 70%; background: #2fa499; color: #2fa499"
+        >
+          <span>70%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <span>SEO</span>
+      <div class="skill__percent__box">
+        <div
+          class="skill__percent"
+          style="width: 80%; background: #4054b2; color: #4054b2"
+        >
+          <span>80%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+---
+
+#### CSS - skills.css
+
+Create `css/skills.css`:
+
+Add to `index.html` head:
+
+```html
+<link rel="stylesheet" href="css/skills.css" />
+```
+
+```css
+#skills > p {
+  font-family: "Quicksand", sans-serif;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: normal;
+  line-height: 1.8;
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+
+.skill {
+  margin-bottom: 20px;
+}
+
+.skill > span {
+  font-size: 16px;
+  font-family: "Quicksand", sans-serif;
+  margin-bottom: 10px;
+  color: black;
+  font-weight: normal;
+  display: block;
+}
+
+.skill__percent__box {
+  background: #f2f3f7;
+  border-radius: 8px;
+}
+
+.skill__percent {
+  width: 75%;
+  height: 6px;
+  background: #2c98f0;
+  border-radius: 8px;
+  position: relative;
+  color: #2c98f0;
+}
+
+.skill__percent::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: inherit;
+}
+
+.skill__percent > span {
+  position: absolute;
+  top: -22px;
+  right: 0;
+  color: inherit;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+```
+
+---
+
+### Contact Form Section
+
+#### HTML
+
+Add after skills section:
+
+```html
+<section id="contact" class="section">
+  <span class="section__title">get in touch</span>
+  <h2 class="section__subtitle">contact</h2>
+
+  <form
+    action=""
+    id="contactForm"
+    class="contact__form"
+    onsubmit="submitForm(event);"
+  >
+    <input
+      type="text"
+      placeholder="Name"
+      id="name"
+      name="name"
+      class="contact__input"
+    />
+    <textarea
+      id="message"
+      class="contact__textarea"
+      name="message"
+      placeholder="Message"
+      rows="4"
+    ></textarea>
+    <button class="contact__button" type="submit">Send Message</button>
+  </form>
+</section>
+```
+
+#### CSS - contact.css
+
+Create `css/contact.css`:
+
+Add to `index.html` head:
+
+```html
+<link rel="stylesheet" href="css/contact.css" />
+```
+
+```css
+.contact__input,
+.contact__textarea {
+  height: 54px;
+  width: 100%;
+  font-family: "Quicksand", serif;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 10px 20px;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  background-color: #f2f3f7;
+  border: none;
+  outline: none;
+}
+
+.contact__textarea {
+  resize: vertical;
+  height: 130px;
+}
+
+.contact__button {
+  cursor: pointer;
+  background: #2c98f0;
+  color: #fff;
+  margin-bottom: 100px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  padding: 8px 15px;
+  border: none;
+}
+```
+
+---
+
+### Sidebar Navigation - HTML Structure
+
+#### HTML
+
+Add before closing `</body>` tag:
+
+```html
+<nav class="sidebar">
+  <div class="sidebar__hamburger" id="hamburger">
+    <div class="sidebar__hamburger__lines">
+      <div class="sidebar__hamburger__line"></div>
+      <div class="sidebar__hamburger__line"></div>
+      <div class="sidebar__hamburger__line"></div>
+    </div>
+  </div>
+
+  <div class="sidebar__content">
+    <img class="sidebar__image" src="images/profile.png" alt="Profile Image" />
+    <h1 class="sidebar__name">Bidur Sapkota</h1>
+    <h2 class="sidebar__job">Developer <span>in Nepal</span></h2>
+
+    <ul class="sidebar__list">
+      <a href="#hero" class="sidebar__list__item">home</a>
+      <a href="#about" class="sidebar__list__item">about</a>
+      <a href="#skills" class="sidebar__list__item">skills</a>
+      <a href="#contact" class="sidebar__list__item">contact</a>
+    </ul>
+
+    <p class="sidebar__copyright">
+      &copy; 2024 All rights reserved | Made with &#128150 by <span>Bidur</span>
+    </p>
+  </div>
+</nav>
+```
+
+- HTML entities (&copy;), there are others too. Search HTML entities in google.
+- Search html emoji codes for heart emoji and other emojis.
+
+---
+
+#### CSS - sidebar.css
+
+Create `css/sidebar.css`:
+
+Add to `index.html` head:
+
+```html
+<link rel="stylesheet" href="css/sidebar.css" />
+```
+
+```css
+.sidebar__hamburger {
+  padding: 30px 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  transition-duration: 500ms;
+  z-index: 50;
+}
+
+.sidebar__hamburger__translate {
+  transform: translateX(300px);
+}
+
+.sidebar__hamburger__lines {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 15px;
+}
+
+.sidebar__hamburger__line {
+  width: 30px;
+  height: 2px;
+  background: #000;
+}
+
+.sidebar__content {
+  width: 300px;
+  height: 100vh;
+  background: #f2f3f7;
+  position: fixed;
+  top: 0;
+  left: -300px; /* initially 0 for dev*/
+  overflow-y: scroll;
+  transition-duration: 500ms;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 50;
+}
+
+.sidebar__hamburger__translate + .sidebar__content {
+  transform: translateX(300px);
+}
+
+.sidebar__image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.sidebar__name {
+  font-size: 22px;
+  color: black;
+  margin-bottom: 7.5px;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.sidebar__job {
+  font-size: 12px;
+  font-weight: normal;
+  color: #2c98f0;
+  text-transform: uppercase;
+}
+
+.sidebar__job > span {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.sidebar__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.sidebar__list__item {
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 2px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.7);
+  position: relative;
   cursor: pointer;
 }
 
-details .project-link:hover {
-  background-color: var(--primary-color);
+.sidebar__list__item::after {
+  content: "";
+  width: 0px;
+  height: 1px;
+  background: #2c98f0;
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all ease 0.2s;
+}
+
+.sidebar__list__item:hover::after {
+  width: 120%;
+}
+
+.sidebar__copyright {
+  padding: 0 20px;
+  margin-bottom: 30px;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-size: 12px;
+  line-height: 2;
+}
+
+.sidebar__copyright > span {
+  color: #2c98f0;
 }
 ```
 
 ---
 
-## Step 12: Footer Section - HTML Structure
+#### Sidebar JavaScript Functionality
 
-Create the footer with contact information and grid layout:
+Add before closing `</body>` tag:
 
 ```html
-<footer>
-  <div class="grid-container">
-    <span id="at-symbol">@</span>
-    <div>
-      <h3>Contact</h3>
-      <a href="mailto:example@email.com">example@email.com</a>
-      <h3>Location</h3>
-      <a href="https://goo.gl/maps/udhCVqJnN65gZLRj7">Berlin, Germany</a>
-    </div>
-    <div>
-      <h3>Projects</h3>
-      <a href="https://www.github.com">Github</a>
-    </div>
-  </div>
-</footer>
+<script>
+  const hamburger = document.getElementById("hamburger");
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("sidebar__hamburger__translate");
+  });
+</script>
 ```
 
----
+### Responsive Design
 
-## Step 13: Footer Section - CSS Grid Layout
-
-Style the footer with CSS Grid and large typography:
+Update about.css
 
 ```css
-footer {
-  background-color: var(--secondary-color);
-  padding: 100px 20px;
-}
-
-footer .grid-container {
-  margin: 0 auto;
-  width: 1000px;
-  max-width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr max-content;
-  gap: 100px;
-}
-
-footer #at-symbol {
-  font-size: 250pt;
-}
-
-footer h3 {
-  margin-top: 80px;
-  font-size: 2rem;
-}
-
-footer a {
-  margin-top: 5px;
-  display: inline-block;
-  color: var(--secondary-text-color);
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: var(--text-color);
+/* ....... */
+/* ....... */
+@media screen and (min-width: 768px) {
+  .about__skills {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  .about__box {
+    flex-grow: 1;
+  }
 }
 ```
 
----
-
-## Step 14: Mobile Responsiveness - Media Queries
-
-Add responsive design for mobile devices:
+Update skills.css
 
 ```css
-@media (max-width: 1000px) {
-  header {
-    padding: 100px 20px;
-    text-align: center;
+@media screen and (min-width: 768px) {
+  .skill__box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
+}
+```
 
-  header h1 {
-    margin-top: 0;
-    font-size: 10vw;
+Update sidebar.css
+
+```css
+@media screen and (min-width: 768px) {
+  body {
+    margin-left: 300px;
   }
-
-  header h2 {
-    font-size: 1.3rem;
-  }
-
-  header img {
+  .sidebar__hamburger {
     display: none;
   }
-
-  footer .grid-container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 0;
-  }
-
-  footer #at-symbol {
-    font-size: 150pt;
-  }
-
-  footer h3 {
-    margin-top: 50px;
+  .sidebar__content {
+    left: 0 !important;
+    transform: unset !important; /*edge case for mobile to desktop mode switch, while sidebar visible*/
   }
 }
 ```
-
----
