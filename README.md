@@ -2,7 +2,7 @@
 
 ![Bidur Sapkota](https://www.bidursapkota.com.np/_next/image?url=%2Fimages%2Fprofile3.png&w=48&q=75 "Bidur Sapkota - Developer")&nbsp;[Bidur Sapkota](https://www.bidursapkota.com.np/)
 
-![HTML, CSS with Portfolio Project Guide by Bidur Sapkota](/test.jpg "HTML, CSS with Portfolio Project Guide – Blog by Bidur Sapkota")
+![HTML, CSS with Portfolio Project Guide by Bidur Sapkota](/images/7-html-css-guide.jpg "HTML, CSS with Portfolio Project Guide – Blog by Bidur Sapkota")
 
 ## Table of Contents
 
@@ -53,6 +53,10 @@
 45. [Animation with Keyframes](#animation-with-keyframes)
 46. [Multi Page Website Build Guide](#multi-page-website-build-guide)
 47. [Portfolio Website](#portfolio-website)
+
+## Portfolio Project Output
+
+![Portfolio Project Output by Bidur Sapkota](/images/7-html-css-op.jpg "Portfolio Project Output – Blog by Bidur Sapkota")
 
 ## What is HTML?
 
