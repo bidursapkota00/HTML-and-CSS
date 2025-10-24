@@ -635,7 +635,7 @@ HTML tables organize data in rows and columns.
 - Use HTML5 `<video>` for self-hosted videos
 - Use `<iframe>` for embedded videos from platforms like YouTube
 - Always provide fallback text for unsupported browsers
-- src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&controls=0&start=6&loop=1"
+- src=`"https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&controls=0&start=6&loop=1"`
 
 **Quick Method:**
 
