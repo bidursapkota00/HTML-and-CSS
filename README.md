@@ -1,4 +1,4 @@
-# HTML / CSS Basics Guide
+# HTML / CSS Complete Guide
 
 ![Bidur Sapkota](https://www.bidursapkota.com.np/_next/image?url=%2Fimages%2Fprofile3.png&w=48&q=75 "Bidur Sapkota - Developer")&nbsp;[Bidur Sapkota](https://www.bidursapkota.com.np/)
 
