@@ -58,11 +58,11 @@
 
 ![Portfolio Project Output by Bidur Sapkota](/images/7-html-css-op.jpg "Portfolio Project Output – Blog by Bidur Sapkota")
 
-## What is HTML?
+### What is HTML?
 
 HTML (HyperText Markup Language) is the standard markup language used to create web pages. It provides the structure and content of websites using a system of elements and tags. HTML tells the browser how to display text, images, links, and other content on a webpage.
 
-## Your First HTML Page
+### Your First HTML Page
 
 Here's a simple example of HTML content:
 
@@ -237,8 +237,6 @@ HTML provides various tags for formatting text:
 - `<mark>` - Highlighted/marked text
 - `<del>` - Deleted/strikethrough text
 - `<ins>` - Inserted/underlined text
-
-## Key Concepts
 
 ### Semantic vs Visual Tags
 
@@ -678,7 +676,7 @@ HTML tooltips provide additional information when hovering over elements.
 - [MDN Web Docs - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [W3Schools HTML Tutorial](https://www.w3schools.com/html/)
 
-## Adding CSS - Three Methods
+## Adding CSS
 
 CSS (Cascading Style Sheets) can be added to HTML documents in three different ways. Each method has its own use cases and priority levels.
 
@@ -2114,11 +2112,11 @@ CSS transitions create smooth animations between property changes, enhancing use
 
 ---
 
-# Positioning
+## Positioning
 
 CSS positioning controls how elements are placed and behave on a webpage. There are five main position values: `static`, `relative`, `absolute`, `fixed`, and `sticky`.
 
-## 1. Position: Static (Default)
+### 1. Position: Static (Default)
 
 Elements with `position: static` follow the normal document flow. They cannot be moved using `top`, `right`, `bottom`, or `left` properties.
 
@@ -2133,7 +2131,7 @@ Elements with `position: static` follow the normal document flow. They cannot be
 <div class="static-element">I'm in normal document flow</div>
 ```
 
-## 2. Position: Relative
+### 2. Position: Relative
 
 Elements with `position: relative` remain in the normal document flow but can be offset from their original position using `top`, `right`, `bottom`, or `left`.
 
@@ -2156,7 +2154,7 @@ Elements with `position: relative` remain in the normal document flow but can be
 - Other elements are not affected by the offset
 - Creates a positioning context for absolutely positioned children
 
-## 3. Position: Absolute
+### 3. Position: Absolute
 
 Elements with `position: absolute` are removed from the normal document flow and positioned relative to their nearest positioned ancestor (or the viewport if none exists).
 
@@ -2190,7 +2188,7 @@ Elements with `position: absolute` are removed from the normal document flow and
 - Positioned relative to nearest positioned ancestor
 - Can overlap other elements
 
-## 4. Position: Fixed
+### 4. Position: Fixed
 
 Elements with `position: fixed` are positioned relative to the viewport and remain in the same position even when scrolling.
 
@@ -2216,7 +2214,7 @@ Elements with `position: fixed` are positioned relative to the viewport and rema
 - Removed from document flow
 - Common for navigation bars, modals, or floating buttons
 
-## 5. Position: Sticky
+### 5. Position: Sticky
 
 Elements with `position: sticky` act like `relative` until they reach a specified scroll position, then become `fixed`.
 
@@ -2244,7 +2242,7 @@ Elements with `position: sticky` act like `relative` until they reach a specifie
 - Must specify at least one of: `top`, `right`, `bottom`, or `left`
 - Perfect for sticky headers or sidebars
 
-## Complete Example
+### Complete Example
 
 ```html
 <!DOCTYPE html>
@@ -2316,17 +2314,17 @@ Elements with `position: sticky` act like `relative` until they reach a specifie
 
 ---
 
-# Pseudo Elements
+## Pseudo Elements
 
 Pseudo elements allow you to style specific parts of an element or insert content without adding extra HTML. They use double colons (`::`) in modern CSS.
 
-## What are Pseudo Elements?
+### What are Pseudo Elements?
 
 Pseudo elements create virtual elements that don't exist in your HTML but can be styled with CSS. They're perfect for adding decorative content, styling specific parts of text, or creating visual effects.
 
-## Common Pseudo Elements
+### Common Pseudo Elements
 
-### 1. ::before and ::after
+#### 1. ::before and ::after
 
 These create virtual elements before or after an element's content. They require the `content` property to be visible.
 
@@ -2349,7 +2347,7 @@ These create virtual elements before or after an element's content. They require
 <!-- Renders as: "This is a quoted text" -->
 ```
 
-### 2. ::first-line
+#### 2. ::first-line
 
 Styles the first line of text in a block element.
 
@@ -2368,7 +2366,7 @@ Styles the first line of text in a block element.
 </p>
 ```
 
-### 3. ::first-letter
+#### 3. ::first-letter
 
 Styles the first letter of the first line in a block element.
 
@@ -2388,7 +2386,7 @@ Styles the first letter of the first line in a block element.
 </p>
 ```
 
-### 4. ::selection
+#### 4. ::selection
 
 Styles the portion of text selected by the user.
 
@@ -2409,7 +2407,7 @@ Styles the portion of text selected by the user.
 <p>Try selecting this text to see the custom selection style!</p>
 ```
 
-### 5. ::placeholder
+#### 5. ::placeholder
 
 Styles placeholder text in input fields.
 
@@ -2652,8 +2650,6 @@ translate: -50% -50%;
 
 ## Flexbox Layout
 
-### Overview
-
 Flexbox is a one-dimensional layout method that allows you to arrange items in rows or columns. It's perfect for creating responsive layouts and aligning content efficiently.
 
 ### Key Flexbox Concepts
@@ -2775,8 +2771,6 @@ Flexbox is a one-dimensional layout method that allows you to arrange items in r
 
 CSS Grid is a two-dimensional layout system that allows you to create complex layouts with rows and columns. It's perfect for creating bento-box style layouts and precise positioning.
 
-## Key Grid Concepts
-
 ### Grid Container Properties
 
 - `display: grid` - Creates a grid container
@@ -2793,9 +2787,9 @@ CSS Grid is a two-dimensional layout system that allows you to create complex la
 
 ---
 
-## Alignment Properties
+### Alignment Properties
 
-### Container-Level Alignment
+#### Container-Level Alignment
 
 These properties are applied to the **grid container** and affect the positioning of all grid items.
 
@@ -2903,7 +2897,7 @@ A shorthand for setting both `align-content` and `justify-content`.
 
 ---
 
-### Item-Level Alignment
+#### Item-Level Alignment
 
 These properties are applied to **individual grid items** and override container-level alignment.
 
@@ -3092,11 +3086,11 @@ This creates a grid that automatically adjusts the number of columns based on av
 
 ---
 
-# Media Query Example Guide
+## Media Query Example Guide
 
 This guide demonstrates how to use CSS media queries to create responsive designs that adapt to different screen sizes.
 
-## HTML Structure
+### HTML Structure
 
 ```html
 <!DOCTYPE html>
@@ -3121,9 +3115,9 @@ This guide demonstrates how to use CSS media queries to create responsive design
 </html>
 ```
 
-## CSS with Media Queries
+### CSS with Media Queries
 
-### Base Styles (Desktop)
+#### Base Styles (Desktop)
 
 ```css
 .box {
@@ -3134,7 +3128,7 @@ This guide demonstrates how to use CSS media queries to create responsive design
 }
 ```
 
-### Tablet Styles (768px and below)
+#### Tablet Styles (768px and below)
 
 ```css
 @media screen and (max-width: 768px) {
@@ -3146,7 +3140,7 @@ This guide demonstrates how to use CSS media queries to create responsive design
 }
 ```
 
-### Mobile Styles (600px and below)
+#### Mobile Styles (600px and below)
 
 ```css
 @media screen and (max-width: 600px) {
@@ -3173,7 +3167,7 @@ This guide demonstrates how to use CSS media queries to create responsive design
 }
 ```
 
-## Breakpoints Explained
+### Breakpoints Explained
 
 | Device Type | Screen Width | Box Color | Box Size  |
 | ----------- | ------------ | --------- | --------- |
@@ -3181,7 +3175,7 @@ This guide demonstrates how to use CSS media queries to create responsive design
 | Tablet      | ≤768px       | Green     | 150x150px |
 | Mobile      | ≤600px       | Red       | 100x100px |
 
-## Key Points
+### Key Points
 
 1. **Media Query Syntax**: `@media screen and (max-width: XXXpx)`
 2. **Cascading**: Smaller screens inherit styles from larger breakpoints, then override specific properties
@@ -3190,13 +3184,13 @@ This guide demonstrates how to use CSS media queries to create responsive design
 
 ---
 
-# CSS Variables and Theming Guide
+## CSS Variables and Theming Guide
 
-## What are CSS Variables?
+### What are CSS Variables?
 
 CSS Variables (also called CSS Custom Properties) are a powerful feature that allows you to store values in reusable variables. They're perfect for creating dynamic themes because you can change multiple properties at once by updating just the variable values.
 
-## Basic Syntax
+### Basic Syntax
 
 ```css
 /* Define variables */
@@ -3210,9 +3204,9 @@ CSS Variables (also called CSS Custom Properties) are a powerful feature that al
 }
 ```
 
-## How Theming Works
+### How Theming Works
 
-### 1. Define Theme Variables
+#### 1. Define Theme Variables
 
 Variables are typically defined in the `:root` pseudo-class, making them globally available:
 
@@ -3224,7 +3218,7 @@ Variables are typically defined in the `:root` pseudo-class, making them globall
 }
 ```
 
-### 2. Create Theme Variants
+#### 2. Create Theme Variants
 
 Use attribute selectors to override variables for different themes:
 
@@ -3236,7 +3230,7 @@ Use attribute selectors to override variables for different themes:
 }
 ```
 
-### 3. Apply Variables to Elements
+#### 3. Apply Variables to Elements
 
 Use `var()` function to apply variables to CSS properties:
 
@@ -3247,7 +3241,7 @@ body {
 }
 ```
 
-## Theme Switching
+### Theme Switching
 
 Themes are typically switched by changing the `data-theme` attribute on the body or html element:
 
@@ -3259,7 +3253,7 @@ document.body.setAttribute("data-theme", "dark");
 document.body.setAttribute("data-theme", "light");
 ```
 
-## Complete Example
+### Complete Example
 
 ```html
 <!DOCTYPE html>
@@ -3310,13 +3304,13 @@ document.body.setAttribute("data-theme", "light");
 
 ---
 
-# Animation with Keyframes
+## Animation with Keyframes
 
-## What are Keyframes?
+### What are Keyframes?
 
 Keyframes define the start and end points of smooth transitions in animations. They tell the browser what styles to apply at specific moments during an animation.
 
-## Basic Syntax
+### Basic Syntax
 
 ```css
 @keyframes animation-name {
@@ -3345,9 +3339,9 @@ Or using percentages:
 }
 ```
 
-## Simple Examples
+### Simple Examples
 
-### 1. Fade In Animation
+#### 1. Fade In Animation
 
 ```css
 @keyframes fadeIn {
@@ -3364,7 +3358,7 @@ Or using percentages:
 }
 ```
 
-### 2. Slide Right Animation
+#### 2. Slide Right Animation
 
 ```css
 @keyframes slideRight {
@@ -3381,7 +3375,7 @@ Or using percentages:
 }
 ```
 
-### 3. Color Change Animation
+#### 3. Color Change Animation
 
 ```css
 @keyframes colorChange {
@@ -3401,7 +3395,7 @@ Or using percentages:
 }
 ```
 
-### 4. Bounce Animation
+#### 4. Bounce Animation
 
 ```css
 @keyframes bounce {
@@ -3419,7 +3413,7 @@ Or using percentages:
 }
 ```
 
-### 5. Rotate Animation
+#### 5. Rotate Animation
 
 ```css
 @keyframes rotate {
@@ -3436,7 +3430,7 @@ Or using percentages:
 }
 ```
 
-## Animation Properties
+### Animation Properties
 
 - `animation-name`: The keyframe name
 - `animation-duration`: How long the animation takes (e.g., 2s, 500ms)
@@ -3445,7 +3439,7 @@ Or using percentages:
 - `animation-iteration-count`: How many times to repeat (1, 3, infinite)
 - `animation-direction`: Direction of animation (normal, reverse, alternate)
 
-## Shorthand Example
+### Shorthand Example
 
 ```css
 .element {
@@ -3454,7 +3448,7 @@ Or using percentages:
 }
 ```
 
-## Key Points
+### Key Points
 
 - Use `from` and `to` for simple start/end animations
 - Use percentages (0%, 25%, 50%, 100%) for complex multi-step animations
@@ -3462,7 +3456,7 @@ Or using percentages:
 - Animations can be paused, reversed, and repeated
 - Always name your keyframes descriptively
 
-## Quick HTML Example
+### Quick HTML Example
 
 ```html
 <!DOCTYPE html>
@@ -3501,13 +3495,11 @@ This creates a button that continuously pulses by scaling up and down.
 
 ---
 
-# Multi Page Website Build Guide
+## Multi Page Website Build Guide
 
 This guide will walk you through creating a complete multi-page website with modern styling and navigation. The project includes a home page, about page, products page, and login page.
 
-## Project Overview
-
-**Final Structure:**
+**Project Structure:**
 
 ```
 project-folder/
@@ -3529,7 +3521,7 @@ project-folder/
 
 ---
 
-## Project Setup
+### Project Setup
 
 ### Create Project Folder
 
@@ -3550,7 +3542,7 @@ Create these empty files in your project folder:
 
 ---
 
-## Step 1: Basic HTML Structure + Global CSS
+### Step 1: Basic HTML Structure + Global CSS
 
 ### HTML Structure (for all pages)
 
@@ -3587,7 +3579,7 @@ html {
 
 ---
 
-## Step 2: Navigation Bar
+### Step 2: Navigation Bar
 
 ### HTML Chunk (add to body of each page)
 
@@ -3630,7 +3622,7 @@ nav a.active {
 
 ---
 
-## Step 3: Basic Header Container
+### Step 3: Basic Header Container
 
 ### HTML Chunk (add after nav)
 
@@ -3652,7 +3644,7 @@ header {
 
 ---
 
-## Step 4: Main Heading (Home Page)
+### Step 4: Main Heading (Home Page)
 
 ### HTML Chunk (inside header)
 
@@ -3678,7 +3670,7 @@ h1 {
 
 ---
 
-## Step 5: Description Paragraph (Home Page)
+### Step 5: Description Paragraph (Home Page)
 
 ### HTML Chunk (add after h1)
 
@@ -3705,7 +3697,7 @@ h1 + p {
 
 ---
 
-## Step 6: Call-to-Action Button (Home Page)
+### Step 6: Call-to-Action Button (Home Page)
 
 ### HTML Chunk (add after paragraph)
 
@@ -3737,7 +3729,7 @@ h1 + p {
 
 ---
 
-## Step 7: Video Player (About Page)
+### Step 7: Video Player (About Page)
 
 ### HTML Chunk (in about.html header)
 
@@ -3770,7 +3762,7 @@ h1 + p {
 
 ---
 
-## Step 8: Products Container (Products Page)
+### Step 8: Products Container (Products Page)
 
 ### HTML Chunk (in products.html header)
 
@@ -3791,7 +3783,7 @@ h1 + p {
 
 ---
 
-## Step 9: Product Items (Products Page)
+### Step 9: Product Items (Products Page)
 
 ### HTML Chunk (inside products-container)
 
@@ -3860,7 +3852,7 @@ h1 + p {
 
 ---
 
-## Step 10: Login Form (Login Page)
+### Step 10: Login Form (Login Page)
 
 ### HTML Chunk (in login.html header)
 
@@ -3911,7 +3903,7 @@ input[type="submit"] {
 
 ---
 
-# Portfolio Website
+## Portfolio Website
 
 A comprehensive guide to building a professional responsive mobile first portfolio website from scratch using HTML and CSS.
 
