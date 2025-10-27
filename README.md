@@ -58,6 +58,8 @@
 
 ![Portfolio Project Output by Bidur Sapkota](/images/7-html-css-op.jpg "Portfolio Project Output – Blog by Bidur Sapkota")
 
+---
+
 ### What is HTML?
 
 HTML (HyperText Markup Language) is the standard markup language used to create web pages. It provides the structure and content of websites using a system of elements and tags. HTML tells the browser how to display text, images, links, and other content on a webpage.
