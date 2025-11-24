@@ -20,7 +20,7 @@
 12. [Table Layouts](#table-layouts)
 13. [Videos](#videos)
 14. [Tooltips](#tooltips)
-15. [Adding CSS - Three Methods](#adding-css---three-methods)
+15. [Adding CSS - Three Methods](#adding-css)
 16. [Classes and IDs](#classes-and-ids)
 17. [Colors](#colors)
 18. [Height and Width](#height-and-width)
