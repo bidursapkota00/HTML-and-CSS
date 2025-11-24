@@ -524,6 +524,9 @@ HTML tables organize data in rows and columns.
   <body>
     <h1>Tables</h1>
     <table>
+      <caption>
+        Student Record
+      </caption>
       <thead>
         <tr>
           <th>firstname</th>
@@ -546,6 +549,11 @@ HTML tables organize data in rows and columns.
           <td>1942</td>
         </tr>
       </tbody>
+      <tfoot>
+        <tr colspan="4">
+          <td>End of data</td>
+        </tr>
+      </tfoot>
     </table>
   </body>
 </html>
@@ -553,9 +561,11 @@ HTML tables organize data in rows and columns.
 
 ### Table Structure:
 
+- **`<caption>`**: Title for the table
 - **`<table>`**: Container for the entire table
 - **`<thead>`**: Table header section
 - **`<tbody>`**: Table body section
+- **`<tfoot>`**: Table footer section
 - **`<tr>`**: Table row
 - **`<th>`**: Table header cell
 - **`<td>`**: Table data cell
@@ -690,7 +700,8 @@ CSS (Cascading Style Sheets) can be added to HTML documents in three different w
 
 ### Priority Order (Specificity):
 
-Inline CSS > Internal CSS > External CSS
+Inline CSS > Internal CSS / External CSS
+Priority of Internal CSS and External CSS depends on which comes last. Last style overrides previous one.
 
 ### Example Code:
 
@@ -1187,13 +1198,13 @@ HTML elements are categorized into two main display types: **Block** and **Inlin
 - Only take up as much width as necessary
 - Don't start on a new line
 - Width and height properties are ignored
-- Examples: `<a>`, `<span>`, `<strong>`
+- Examples: `<a>`, `<span>`, `<strong>`, `<img>`
 
 ### Inline-Block Elements
 
 - Only take up as much width as necessary but Width and height properties can be set
 - Combines features of both block and inline elments
-- Examples: `<img>`, `<button>`, `<input>`
+- Examples: `<button>`, `<input>`
 
 ### Example Code
 
@@ -4005,7 +4016,7 @@ li {
 
 #### HTML
 
-Add after the sidebar `</nav>`:
+Add inside `<body>`:
 
 ```html
 <section id="hero">
@@ -4601,17 +4612,11 @@ Add to `index.html` head:
 
 #### HTML
 
-Add before closing `</body>` tag:
+Add at beginning of `<body>` tag:
 
 ```html
 <nav class="sidebar">
-  <div class="sidebar__hamburger" id="hamburger">
-    <div class="sidebar__hamburger__lines">
-      <div class="sidebar__hamburger__line"></div>
-      <div class="sidebar__hamburger__line"></div>
-      <div class="sidebar__hamburger__line"></div>
-    </div>
-  </div>
+  <i id="hamburger" class="fa-solid fa-bars sidebar__hamburger"></i>
 
   <div class="sidebar__content">
     <img class="sidebar__image" src="images/profile.png" alt="Profile Image" />
@@ -4619,14 +4624,23 @@ Add before closing `</body>` tag:
     <h2 class="sidebar__job">Developer <span>in Nepal</span></h2>
 
     <ul class="sidebar__list">
-      <a href="#hero" class="sidebar__list__item">home</a>
-      <a href="#about" class="sidebar__list__item">about</a>
-      <a href="#skills" class="sidebar__list__item">skills</a>
-      <a href="#contact" class="sidebar__list__item">contact</a>
+      <li class="sidebar__list__item">
+        <a href="#hero">home</a>
+      </li>
+      <li class="sidebar__list__item">
+        <a href="#about">about</a>
+      </li>
+      <li class="sidebar__list__item">
+        <a href="#skills">skills</a>
+      </li>
+      <li class="sidebar__list__item">
+        <a href="#contact">contact</a>
+      </li>
     </ul>
 
     <p class="sidebar__copyright">
-      &copy; 2024 All rights reserved | Made with &#128150 by <span>Bidur</span>
+      &copy; 2024 All rights reserved | Made with &#128150; by
+      <span>Bidur</span>
     </p>
   </div>
 </nav>
@@ -4656,24 +4670,11 @@ Add to `index.html` head:
   cursor: pointer;
   transition-duration: 500ms;
   z-index: 50;
+  font-size: 24px;
 }
 
 .sidebar__hamburger__translate {
   transform: translateX(300px);
-}
-
-.sidebar__hamburger__lines {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 15px;
-}
-
-.sidebar__hamburger__line {
-  width: 30px;
-  height: 2px;
-  background: #000;
 }
 
 .sidebar__content {
